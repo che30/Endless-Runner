@@ -1,37 +1,26 @@
 {
-  "name": "todolist",
+  "name": "phaser3-project-template-2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Phaser 3 Project Template",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open",
-    "test": "jest",
-    "watch": "jest --watch *.js"
+    "build": "webpack",
+    "start": "npm run build && webpack-dev-server --port=8000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/che30/TodoList.git"
+    "url": "git+https://scottwestover@bitbucket.org/creativerendering/phaser3-template.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "bugs": {
-    "url": "https://github.com/che30/TodoList/issues"
+    "url": "https://github.com/photonstorm/phaser3-project-template/issues"
   },
-  "homepage": "https://github.com/che30/TodoList#readme",
+  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.13.12",
-    "babel-jest": "^26.6.3",
-    "grunt": "^1.3.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "jest": "^26.6.3",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
-  },
-  "dependencies": {
-    "date-fns": "^2.19.0",
-    "http-server": "^0.12.3",
-    "phaser": "^3.54.0"
+    "webpack-dev-server": "^2.11.0",
+    "webpack": "^3.4.1",
+    "raw-loader": "^0.5.1",
+    "phaser": "^3.3.0"
   }
 }
