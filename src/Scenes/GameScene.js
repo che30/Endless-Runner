@@ -48,7 +48,7 @@ export default class GameScene extends Phaser.Scene {
           // adding the player;
         this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.7, "run1");
         this.player.setGravityY(gameOptions.playerGravity);
-        this.player.setScale(0.3);
+        this.player.setScale(1);
         this.player.setDepth(2);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
  
@@ -111,4 +111,45 @@ getRightmostMountain(){
       }
       this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
     }
+    update (){
+      // recycling platforms
+      let minDistance = game.config.width;
+        let rightmostPlatformHeight = 0;
+        this.platformGroup.getChildren().forEach(function(platform){
+            let platformDistance = game.config.width - platform.x - platform.displayWidth / 2;
+            if(platformDistance < minDistance){
+                minDistance = platformDistance;
+                rightmostPlatformHeight = platform.y;
+            }
+            if(platform.x < - platform.displayWidth / 2){
+                this.platformGroup.killAndHide(platform);
+                this.platformGroup.remove(platform);
+            }
+        }, this);
+         // recycling mountains
+         this.mountainGroup.getChildren().forEach(function(mountain){
+          if(mountain.x < - mountain.displayWidth){
+              let rightmostMountain = this.getRightmostMountain();
+              mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
+              mountain.y = game.config.height + Phaser.Math.Between(0, 100);
+              mountain.setFrame(Phaser.Math.Between(0, 3))
+              if(Phaser.Math.Between(0, 1)){
+                  mountain.setDepth(1);
+              }
+          }
+      }, this);
+
+      // adding new platforms
+      if(minDistance > this.nextPlatformDistance){
+          let nextPlatformWidth = Phaser.Math.Between(gameOptions.platformSizeRange[0], gameOptions.platformSizeRange[1]);
+          let platformRandomHeight = gameOptions.platformHeighScale * Phaser.Math.Between(gameOptions.platformHeightRange[0], gameOptions.platformHeightRange[1]);
+          let nextPlatformGap = rightmostPlatformHeight + platformRandomHeight;
+          let minPlatformHeight = game.config.height * gameOptions.platformVerticalLimit[0];
+          let maxPlatformHeight = game.config.height * gameOptions.platformVerticalLimit[1];
+          let nextPlatformHeight = Phaser.Math.Clamp(nextPlatformGap, minPlatformHeight, maxPlatformHeight);
+          this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2, nextPlatformHeight);
+      }
+  }
+ 
+    
 };
