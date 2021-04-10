@@ -20,8 +20,6 @@ export default class AnimateScene extends Phaser.Scene {
     this.load.image('cactus2','assets/cactus.png')
     this.load.image('cactus3','assets/cactus.png')
     this.load.image('cactus5','assets/cactus.png')
-    
-      this.load.image("platform", "assets/ui/cozy/transparent /Full-background.png");
 
   }
          

@@ -16,12 +16,7 @@ export default class GameScene extends Phaser.Scene {
   }
          
   create () {
-    // this.add.image(400, 300, 'background');
-      // this.add.image(game.config.with/2,game.config.height/2)
-      // this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, 'run1');
-      // this.player.setScale(0.3)
-        // setting player animation
-        // this.animate= new  AnimateScene
+    // this.add.image(200,200,"platform")
          // group with all active mountains.
          this.mountainGroup = this.add.group();
  
@@ -54,6 +49,7 @@ export default class GameScene extends Phaser.Scene {
           // adding the player;
         this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.7, "run1");
         this.player.setGravityY(gameOptions.playerGravity);
+        this.player.setScale(0.3);
         this.player.setDepth(2);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
  
