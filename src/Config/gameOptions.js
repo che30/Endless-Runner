@@ -1,7 +1,7 @@
 export default {
  
   // platform speed range, in pixels per second
-  platformSpeedRange: [300, 300],
+  platformSpeedRange: [200, 200],
 
   // mountain speed, in pixels per second
   mountainSpeed: 80,

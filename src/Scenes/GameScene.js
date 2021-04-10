@@ -15,7 +15,7 @@ export default class GameScene extends Phaser.Scene {
   }
          
   create () {
-    // this.add.image(200,200,"platform")
+    this.add.image(200,200,"mountain")
          // group with all active mountains.
          this.mountainGroup = this.add.group();
  
@@ -37,14 +37,18 @@ export default class GameScene extends Phaser.Scene {
             }
         });
          // adding a mountain
-         this.addMountains()
+        //  this.addMountains()
           // keeping track of added platforms
         this.addedPlatforms = 0;
+        //declare score variable
+        this.score =0
+        //display score on screen
+        this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
  
         // number of consecutive jumps made by the player so far
         this.playerJumps = 0;
          // adding a platform to the game, the arguments are platform width, x position and y position
-         this.addPlatform(game.config.width, game.config.width / 2, game.config.height * gameOptions.platformVerticalLimit[1]);
+       this.addPlatform(game.config.width, game.config.width / 2, game.config.height * gameOptions.platformVerticalLimit[1]);
           // adding the player;
         this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height * 0.7, "run1");
         this.player.setGravityY(gameOptions.playerGravity);
@@ -52,15 +56,14 @@ export default class GameScene extends Phaser.Scene {
         this.player.setDepth(2);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
  
-          // play "run" animation if the player is on a platform
-          if(!this.player.anims.isPlaying){
-            console.log("not playing")
-              this.player.anims.play("run");
-          }
-      }, null, this);
-  
-      
- 
+       // play "run" animation if the player is on a platform
+         if(!this.player.anims.isPlaying){
+           console.log("not playing")
+             this.player.anims.play("run");
+         }
+     }, null, this);
+            // checking for input
+          
       
   }
   // adding mountains
@@ -126,7 +129,7 @@ getRightmostMountain(){
                 this.platformGroup.remove(platform);
             }
         }, this);
-         // recycling mountains
+        // recycling mountains
          this.mountainGroup.getChildren().forEach(function(mountain){
           if(mountain.x < - mountain.displayWidth){
               let rightmostMountain = this.getRightmostMountain();
@@ -149,7 +152,25 @@ getRightmostMountain(){
           let nextPlatformHeight = Phaser.Math.Clamp(nextPlatformGap, minPlatformHeight, maxPlatformHeight);
           this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2, nextPlatformHeight);
       }
-  }
+      this.cursors = this.input.keyboard.createCursorKeys();
+      
  
+    if (this.cursors.up.isDown )
+    {console.log("it has been pressed")
+   if(this.playerJumps < gameOptions.jumps){
+    
+        this.player.setVelocityY(gameOptions.jumpForce * -1);
+        this.playerJumps ++;
+        this.score += 10;
+        this.scoreText.setText('Score: ' + this.score);
+    
+    }}else if (this.cursors.right.isDown)
+  {
+      this.player.setVelocityX(200);
+      this.score += 10;
+      this.scoreText.setText('Score: ' + this.score);
+      this.player.anims.play('right', true);
+  }
+}
     
 };
