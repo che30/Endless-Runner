@@ -7,14 +7,14 @@ export default class AnimateScene extends Phaser.Scene {
   preload () {
     // load images
     this.load.image('logo', 'assets/logo.png');
-    this.load.image('run1','assets/dino/run1.png')
-    this.load.image('run2','assets/dino/run2.png')
-    this.load.image('run3','assets/dino/run3.png')
-    this.load.image('run4','assets/dino/run4.png')
-    this.load.image('run5','assets/dino/run5.png')
-    this.load.image('run6','assets/dino/run6.png')
-    this.load.image('run7','assets/dino/run7.png')
-    this.load.image('run8','assets/dino/run8.png')
+    this.load.image('run1','assets/runner1.png')
+    this.load.image('run2','assets/runner2.png')
+    this.load.image('run3','assets/runner3.png')
+    this.load.image('run4','assets/runner4.png')
+    this.load.image('run5','assets/runner5.png')
+    this.load.image('run6','assets/runner6.png')
+    this.load.image('run7','assets/runner7.png')
+    this.load.image('run8','assets/runner8.png')
     this.load.image('cactus1','assets/cactus.png')
     this.load.image('cactus1','assets/cactus.png')
     this.load.image('cactus2','assets/cactus.png')

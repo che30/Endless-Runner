@@ -1,5 +1,4 @@
 import 'phaser';
-// import Runner from '../Config/Runner.js'
 import gameOptions from '../Config/gameOptions.js'
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -54,10 +53,12 @@ export default class GameScene extends Phaser.Scene {
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
  
           // play "run" animation if the player is on a platform
-          if(this.player.anims.isPlaying){
+          if(!this.player.anims.isPlaying){
+            console.log("not playing")
               this.player.anims.play("run");
           }
       }, null, this);
+  
       
  
       
