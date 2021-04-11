@@ -60,7 +60,7 @@ export default class AnimateScene extends Phaser.Scene {
               frameRate: 8,
             });
              this.anims.create({
-              key: 'cactus',
+              key: 'rotate',
               frames: [
                 { key: 'cactus1', frame: null },
                 { key: 'cactus2', frame: null },

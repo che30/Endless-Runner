@@ -1,5 +1,6 @@
 import 'phaser';
 import gameOptions from '../Config/gameOptions.js'
+import Apidata from '../ScoreAPI/Apidata.js'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
@@ -36,9 +37,7 @@ export default class GameScene extends Phaser.Scene {
                 platform.scene.platformGroup.add(platform)
             }
         });
-         // adding a mountain
-        //  this.addMountains()
-          // keeping track of added platforms
+        
         this.addedPlatforms = 0;
         //declare score variable
         this.score =0
@@ -122,6 +121,14 @@ getRightmostMountain(){
       this.cursors = this.input.keyboard.createCursorKeys();
     }
     update (){
+      const api = new Apidata()
+      // game over
+      if(this.player.y > game.config.height){
+        api.addScore(gameOptions.playerName[0], 10).then(res=>console.log(res))
+        api.getScores().then(res=>console.log(res))
+        this.scene.stop('Game')
+        this.scene.start('GameOver');
+    }
       // recycling platforms
       let minDistance = game.config.width;
         let rightmostPlatformHeight = 0;

@@ -38,5 +38,8 @@ export default {
   coinPercent: 25,
 
   // % of probability a fire appears on the platform
-  firePercent: 25
+  firePercent: 25,
+  //Array to store playerName
+  playerName : []
+  
 }
