@@ -113,6 +113,13 @@ getRightmostMountain(){
           this.platformGroup.add(platform);
       }
       this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
+     
+      this.input.keyboard.on('keydown-UP', this.jump, this);
+      this.input.keyboard.on('keydown-RIGHT', this.jump, this);
+      this.input.on('pointerdown', this.jump, this);
+  
+      // Sets the jumps to 0 for the double jump
+      this.cursors = this.input.keyboard.createCursorKeys();
     }
     update (){
       // recycling platforms
@@ -152,19 +159,24 @@ getRightmostMountain(){
           let nextPlatformHeight = Phaser.Math.Clamp(nextPlatformGap, minPlatformHeight, maxPlatformHeight);
           this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2, nextPlatformHeight);
       }
-      this.cursors = this.input.keyboard.createCursorKeys();
+     
       
- 
+    }
+    jump(){
     if (this.cursors.up.isDown )
-    {console.log("it has been pressed")
-   if(this.playerJumps < gameOptions.jumps){
-    
+    {  if(this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)){
+        if(this.player.body.touching.down){
+            this.playerJumps = 0;
+        }
+      console.log(this.playerJumps)
         this.player.setVelocityY(gameOptions.jumpForce * -1);
         this.playerJumps ++;
         this.score += 10;
         this.scoreText.setText('Score: ' + this.score);
+    }
+      
     
-    }}else if (this.cursors.right.isDown)
+    }else if (this.cursors.right.isDown)
   {
       this.player.setVelocityX(200);
       this.score += 10;
