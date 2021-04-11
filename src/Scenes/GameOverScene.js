@@ -1,6 +1,4 @@
 import  Phaser from 'phaser';
-// import gameOptions from '../Config/gameOptions.js'
-import Apidata from '../ScoreAPI/Apidata.js'
 
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -10,15 +8,14 @@ export default class GameOverScene extends Phaser.Scene {
     //load images
    this.load.image('back', 'assets/ui/ui_ic/ret.png');
    this.load.image('gameover', 'assets/game_over.png');
-  //  this.load.image('star', 'assets/star.png');
-  //  this.load.spritesheet('dude', 
-  //      'assets/runner1.png',
-  //      { frameWidth: 32, frameHeight: 48 }
-  //  );
+   this.load.image("mountain", "assets/ui/cozy/transparent /background.png")
  }
 
   create() {
-    this.add.image(400, 300, 'gameover');
+    
+    this.add.image(200,200,"mountain")
+    // this.add.image(400, 300, 'gameover');
+   
     const backbtn = this.add.sprite((game.config.width / 8), (game.config.height / 4) * 3, 'back');
     backbtn.setScale(0.5);
     backbtn.setInteractive();

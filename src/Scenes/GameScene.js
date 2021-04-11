@@ -12,6 +12,7 @@ export default class GameScene extends Phaser.Scene {
     
       this.load.image("mountain", "assets/ui/cozy/transparent /background.png");
       this.load.image("platform","assets/perte.png")
+      
 
   }
          
@@ -126,7 +127,7 @@ getRightmostMountain(){
       if(this.player.y > game.config.height){
         api.addScore(gameOptions.playerName[0], 10).then(res=>console.log(res))
         api.getScores().then(res=>console.log(res))
-        this.scene.stop('Game')
+        this.scene.pause('Game')
         this.scene.start('GameOver');
     }
       // recycling platforms

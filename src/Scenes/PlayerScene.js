@@ -8,10 +8,16 @@ export default class PlayerName extends Phaser.Scene{
   preload(){
     this.load.html('nameform', 'assets/text/nameform.html');
     this.load.image('player','assets/runner1.png')
+    this.load.image("mountain", "assets/ui/cozy/transparent /background.png");
   }
   create(){
-    this.add.image(400, 300, 'player');
-    var text = this.add.text(300, 10, 'Please enter your name', { color: 'white', fontSize: '20px '});
+    this.add.image(200,200,"mountain")
+    this.player = this.physics.add.sprite(200, 450, "player");
+
+    this.player.setScale(1);
+    this.player.setDepth(2);
+    this.player.anims.play("walk");
+    var text = this.add.text(100, 10, 'Please enter your name', { color: 'purple', fontSize: '20px '});
     var element = this.add.dom(game.config.width/2, this.game.config.height/2).createFromCache('nameform');
   
     element.addListener('click');
