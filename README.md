@@ -24,11 +24,12 @@ To run tests follow the steps below
 - Type the command `git checkout testing` to switch to the testing branch 
 - Type `npm install --save-dev jest` on your terminal.
 - Then Type `npm run test` to run all the tests
-## Author
+
 ## Click the link below to see the live demo
 - [Live Demo Link](https://immense-basin-03916.herokuapp.com/)
 ## Video presentation
 - [Live Presentation Link](https://www.loom.com/share/10164f46d22e44c98bca3de10f4bbff2)
+## Author
 **Che Blanchard**
 - GitHub: [@che30](https://github.com/che30)
 - LinkedIn: [Che Blanchard](https://www.linkedin.com/in/che-nsoh-9455271b0/)
