@@ -9,6 +9,8 @@ An Endless Runner is characterized as an action game, linear in design with no e
 - Jest
 - Webpack
 
+## Game instructions
+Use the up key on your computer to jump between obstacles and the right key to move forward. When collide with the bird your score increases by a higher factor
 ## Getting started
    To get a local copy up and running follow these simple example steps.
 # Setup
