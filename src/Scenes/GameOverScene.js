@@ -48,18 +48,5 @@ export default class GameOverScene extends Phaser.Scene {
       this.scene.start('Options');
     });
   }
-
-  // update() {
-  //   const { game: { config: { width } } } = this;
-  //   const midpoint = (width / 8);
-  //   const fontOptions = {
-  //     fontSize: '50px',
-  //     fontStyle: 'bolder',
-  //     fill: '#bc6ff1',
-  //     align: 'center',
-  //     strokeThickness: 10,
-  //     stroke: '#892cdc',
-  //   };
-  // }
 }
 /* eslint-enable import/no-extraneous-dependencies */
