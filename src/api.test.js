@@ -1,7 +1,7 @@
 
-import Apidata from './ScoreAPI/Apidata.js';
+import Apidata from './ScoreAPI/Apidata';
 
-const apiLink = new Apidata;
+const apiLink = new Apidata();
 
 test('3. Adding scores with no errors', () => {
   expect(apiLink.addScore('test', 0) instanceof Promise).toBeTruthy();

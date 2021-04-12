@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 /* eslint-disable no-plusplus */
 /* eslint-disable  class-methods-use-this */
 import Phaser from 'phaser';
@@ -269,6 +269,6 @@ export default class GameScene extends Phaser.Scene {
     });
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
+module.exports = GameScene;
 /* eslint-enable no-plusplus */
 /* eslint-enable  class-methods-use-this */

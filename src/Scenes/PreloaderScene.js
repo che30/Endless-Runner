@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 /* eslint-disable radix */
 import Phaser from 'phaser';
 
@@ -98,5 +98,5 @@ export default class PreloaderScene extends Phaser.Scene {
     }
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
+
 /* eslint-enable radix */

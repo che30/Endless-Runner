@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
 
@@ -49,4 +49,3 @@ export default class GameOverScene extends Phaser.Scene {
     });
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
