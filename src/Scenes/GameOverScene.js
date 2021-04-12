@@ -1,4 +1,5 @@
 import  Phaser from 'phaser';
+import gameOptions from '../Config/gameOptions.js'
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
     super('GameOver');
@@ -23,7 +24,8 @@ export default class GameOverScene extends Phaser.Scene {
 
     this.add.image(200,200,"mountain")
      this.add.image(400, 300, 'gameover');
-   
+     this.scoreText = this.add.text(48, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+     this.scoreText.setText('Score: ' + gameOptions.currentScore[0]);
     const backbtn = this.add.sprite((game.config.width / 8), (game.config.height / 4) * 3, 'back');
     backbtn.setScale(0.5);
     backbtn.setInteractive();

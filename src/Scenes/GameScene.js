@@ -63,6 +63,9 @@ export default class GameScene extends Phaser.Scene {
         this.player.setDepth(2);
          //add collider between bird and player 
         this.physics.add.overlap(this.player, this.birds, function(player,birds){
+           this.checkscore()
+        this.score += 6;
+        gameOptions.currentScore.push(this.score)
             this.score+=6;
             this.tweens.add({
                 targets: birds,
@@ -201,7 +204,9 @@ getRightmostMountain(){
         }
         this.player.setVelocityY(gameOptions.jumpForce * -1);
         this.playerJumps ++;
+        this.checkscore()
         this.score += 4;
+        gameOptions.currentScore.push(this.score)
         this.scoreText.setText('Score: ' + this.score);
     }
       
@@ -211,9 +216,18 @@ getRightmostMountain(){
       // this.player.x
       this.player.x+=3
       this.score += 2;
+    this.checkscore()
+      this.score += 4;
+      gameOptions.currentScore.push(this.score)
       this.scoreText.setText('Score: ' + this.score);
       this.player.anims.play('right', true);
   }
+}
+checkscore(){
+  if(gameOptions.currentScore>=1)
+      {
+        gameOptions.currentScore.pop()
+      }
 }
 spawnBird() {
   this.time.addEvent({
