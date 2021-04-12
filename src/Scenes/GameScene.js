@@ -63,7 +63,7 @@ export default class GameScene extends Phaser.Scene {
         this.player.setDepth(2);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
           //add collider between bird and player 
-          // this.physics.add.collider(this.player, this.birds, null, this);
+           this.physics.add.collider(this.player, this.birds,this.addScore(), null, this);
        // play "run" animation if the player is on a platform
          if(!this.player.anims.isPlaying){
              this.player.anims.play("run");
@@ -133,7 +133,7 @@ getRightmostMountain(){
       // game over
       if(this.player.y > game.config.height){
         api.addScore(gameOptions.playerName[0], 10)
-        this.scene.stop('Game')
+        this.scene.pause('Game')
         this.scene.start('GameOver');
     }
     this.player.body.setVelocityX(120);
@@ -185,7 +185,7 @@ getRightmostMountain(){
         }
         this.player.setVelocityY(gameOptions.jumpForce * -1);
         this.playerJumps ++;
-        this.score += 10;
+        this.score += 4;
         this.scoreText.setText('Score: ' + this.score);
     }
       
@@ -194,10 +194,13 @@ getRightmostMountain(){
   {
       // this.player.x
       this.player.x+=3
-      this.score += 10;
+      this.score += 2;
       this.scoreText.setText('Score: ' + this.score);
       this.player.anims.play('right', true);
   }
+}
+addScore(){
+  this.score+=6;
 }
 spawnBird() {
   this.birds = this.physics.add.group();

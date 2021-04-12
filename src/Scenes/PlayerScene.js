@@ -15,7 +15,7 @@ export default class PlayerName extends Phaser.Scene{
     this.add.image(200,200,"mountain")
     this.player = this.physics.add.sprite(200, 450, "player");
 
-    this.player.setScale(1);
+    this.player.setScale(2);
     this.player.setDepth(2);
     this.player.anims.play("walk");
     var text = this.add.text(100, 10, 'Please enter your name', { color: 'purple', fontSize: '20px '});
