@@ -9,6 +9,7 @@ export default class PlayerName extends Phaser.Scene{
     this.load.html('nameform', 'assets/text/nameform.html');
     this.load.image('player','assets/runner1.png')
     this.load.image("mountain", "assets/ui/cozy/transparent /background.png");
+    
   }
   create(){
     this.add.image(200,200,"mountain")

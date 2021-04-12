@@ -16,11 +16,11 @@ export default class GameScene extends Phaser.Scene {
         frameWidth: 512,
         frameHeight: 512
     });
-      
 
   }
          
   create () {
+   
     //spawn bird
     this.spawnBird();
     //add mountain
@@ -66,7 +66,6 @@ export default class GameScene extends Phaser.Scene {
           // this.physics.add.collider(this.player, this.birds, null, this);
        // play "run" animation if the player is on a platform
          if(!this.player.anims.isPlaying){
-           console.log("not playing")
              this.player.anims.play("run");
          }
      }, null, this);
@@ -227,9 +226,7 @@ generateBird(y) {
       repeat: 0,
       callbackScope: this,
       callback: () => {
-          console.log("Line 78", this.birds.children.size);
           bird.destroy();
-          console.log("Line 80", this.birds.children.size);
       }
   })
 

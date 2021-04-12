@@ -20,7 +20,7 @@ export default class AnimateScene extends Phaser.Scene {
   }
          
   create () {
-
+  
         this.anims.create({
                key: 'run',
                frames: [
@@ -36,21 +36,6 @@ export default class AnimateScene extends Phaser.Scene {
                repeat: -1,
                frameRate: 8,
              });
-             this.anims.create({
-              key: 'walk',
-              frames: [
-                { key: 'run1', frame: null },
-                { key: 'run2', frame: null },
-                { key: 'run3', frame: null },
-                { key: 'run4', frame: null },
-                { key: 'run5', frame: null },
-                { key: 'run6', frame: null },
-                { key: 'run7', frame: null },
-                { key: 'run8', frame: null },
-              ],
-              repeat: -1,
-              frameRate: 8,
-            });
              this.anims.create({
               key: 'right',
               frames: [

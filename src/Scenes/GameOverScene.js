@@ -8,10 +8,18 @@ export default class GameOverScene extends Phaser.Scene {
    this.load.image('back', 'assets/ui/ui_ic/ret.png');
    this.load.image('gameover', 'assets/game_over.png');
    this.load.image("mountain", "assets/ui/cozy/transparent /background.png")
+   this.load.image('walk1','assets/runner1.png')
+   this.load.image('walk2','assets/runner2.png')
+   this.load.image('walk3','assets/runner3.png')
+   this.load.image('walk4','assets/runner4.png')
+   this.load.image('walk5','assets/runner5.png')
+   this.load.image('walk6','assets/runner6.png')
+   this.load.image('walk7','assets/runner7.png')
+   this.load.image('walk8','assets/runner8.png')
  }
 
   create() {
-  
+
     this.add.image(200,200,"mountain")
      this.add.image(400, 300, 'gameover');
    
@@ -29,6 +37,7 @@ export default class GameOverScene extends Phaser.Scene {
       backbtn.setTexture('back');
     });
 
+     
   
 
   }
