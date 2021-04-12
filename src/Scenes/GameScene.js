@@ -1,8 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-plusplus */
 /* eslint-disable  class-methods-use-this */
-
-
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
 import Apidata from '../ScoreAPI/Apidata';

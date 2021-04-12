@@ -28,3 +28,4 @@ export default class Apidata {
     return resp;
   }
 }
+module.exports = Apidata

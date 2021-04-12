@@ -20,7 +20,7 @@ export default class PlayerName extends Phaser.Scene {
     this.player.setScale(2);
     this.player.setDepth(2);
     this.player.anims.play('walk');
-    const text = this.add.text(100, 10, 'Please enter your name', { color: 'purple', fontSize: '20px ' });
+    const text = this.add.text(100, 150, 'Please enter your name', { color: 'purple', fontSize: '20px ' });
     const element = this.add.dom(this.game.config.width / 2, this.game.config.height / 2).createFromCache('nameform');
 
     element.addListener('click');
