@@ -45,7 +45,7 @@ export default class GameScene extends Phaser.Scene {
                 platform.scene.platformGroup.add(platform)
             }
         });
-        
+        this.birds = this.physics.add.group();
         this.addedPlatforms = 0;
         //declare score variable
         this.score =0
@@ -61,9 +61,25 @@ export default class GameScene extends Phaser.Scene {
         this.player.setGravityY(gameOptions.playerGravity);
         this.player.setScale(1);
         this.player.setDepth(2);
+         //add collider between bird and player 
+        this.physics.add.overlap(this.player, this.birds, function(player,birds){
+            this.score+=6;
+            this.tweens.add({
+                targets: birds,
+                y: birds.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    this.birds.killAndHide(birds);
+                    this.birds.remove(birds);
+                }
+            });
+ 
+        }, null, this);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
-          //add collider between bird and player 
-           this.physics.add.collider(this.player, this.birds,this.addScore(), null, this);
+         
        // play "run" animation if the player is on a platform
          if(!this.player.anims.isPlaying){
              this.player.anims.play("run");
@@ -199,11 +215,7 @@ getRightmostMountain(){
       this.player.anims.play('right', true);
   }
 }
-addScore(){
-  this.score+=6;
-}
 spawnBird() {
-  this.birds = this.physics.add.group();
   this.time.addEvent({
       delay: this.birdDelay,
       loop: true,

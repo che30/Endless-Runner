@@ -30,7 +30,6 @@ export default class TitleScene extends Phaser.Scene {
     }.bind(this));
 
     // Credits
-
     this.input.on('pointerover', function (event, gameObjects) {
       gameObjects[0].setTexture('blueButton2');
     });
