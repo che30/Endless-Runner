@@ -4,20 +4,27 @@ import Apidata from '../ScoreAPI/Apidata.js'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
+    this.birdSpeed = -350;
+    this.birdDelay = 3000;
   }
 
   preload () {
     // load images
     
-    
-      this.load.image("mountain", "assets/ui/cozy/transparent /background.png");
       this.load.image("platform","assets/perte.png")
+      this.load.spritesheet("mountain","assets/ui/cozy/transparent /background.png", {
+        frameWidth: 512,
+        frameHeight: 512
+    });
       
 
   }
          
   create () {
-    this.add.image(200,200,"mountain")
+    //spawn bird
+    this.spawnBird();
+    //add mountain
+     this.add.image(200,200,"mountain")
          // group with all active mountains.
          this.mountainGroup = this.add.group();
  
@@ -55,7 +62,8 @@ export default class GameScene extends Phaser.Scene {
         this.player.setScale(1);
         this.player.setDepth(2);
         this.platformCollider = this.physics.add.collider(this.player, this.platformGroup, function(){
- 
+          //add collider between bird and player 
+          // this.physics.add.collider(this.player, this.birds, null, this);
        // play "run" animation if the player is on a platform
          if(!this.player.anims.isPlaying){
            console.log("not playing")
@@ -125,11 +133,11 @@ getRightmostMountain(){
       const api = new Apidata()
       // game over
       if(this.player.y > game.config.height){
-        api.addScore(gameOptions.playerName[0], 10).then(res=>console.log(res))
-        api.getScores().then(res=>console.log(res))
-        this.scene.pause('Game')
+        api.addScore(gameOptions.playerName[0], 10)
+        this.scene.stop('Game')
         this.scene.start('GameOver');
     }
+    this.player.body.setVelocityX(120);
       // recycling platforms
       let minDistance = game.config.width;
         let rightmostPlatformHeight = 0;
@@ -176,7 +184,6 @@ getRightmostMountain(){
         if(this.player.body.touching.down){
             this.playerJumps = 0;
         }
-      console.log(this.playerJumps)
         this.player.setVelocityY(gameOptions.jumpForce * -1);
         this.playerJumps ++;
         this.score += 10;
@@ -186,11 +193,47 @@ getRightmostMountain(){
     
     }else if (this.cursors.right.isDown)
   {
-      this.player.setVelocityX(200);
+      // this.player.x
+      this.player.x+=3
       this.score += 10;
       this.scoreText.setText('Score: ' + this.score);
       this.player.anims.play('right', true);
   }
+}
+spawnBird() {
+  this.birds = this.physics.add.group();
+  this.time.addEvent({
+      delay: this.birdDelay,
+      loop: true,
+      callbackScope: this,
+      callback: () => {
+          let val = Math.random();
+          if (val > 0.5) {
+              this.generateBird(280);
+          } else {
+              this.generateBird(360);
+          }
+      }
+  })
+}
+generateBird(y) {
+  let bird = this.birds.create(Math.max(Math.random() * 900, 780), y, "bird");
+  bird.setScale(0.4).setOrigin(0, 0);
+  bird.setVelocityX(Math.max(--this.birdSpeed, -400));
+  bird.setSize(bird.width * 0.4, bird.height * 0.4);
+  bird.anims.play("fly");
+  this.time.addEvent({
+      delay: 4000,
+      repeat: 0,
+      callbackScope: this,
+      callback: () => {
+          console.log("Line 78", this.birds.children.size);
+          bird.destroy();
+          console.log("Line 80", this.birds.children.size);
+      }
+  })
+
+
 }
     
 };

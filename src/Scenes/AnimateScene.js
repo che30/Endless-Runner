@@ -15,20 +15,12 @@ export default class AnimateScene extends Phaser.Scene {
     this.load.image('run6','assets/runner6.png')
     this.load.image('run7','assets/runner7.png')
     this.load.image('run8','assets/runner8.png')
-    this.load.image('cactus1','assets/cactus.png')
-    this.load.image('cactus1','assets/cactus.png')
-    this.load.image('cactus2','assets/cactus.png')
-    this.load.image('cactus3','assets/cactus.png')
-    this.load.image('cactus5','assets/cactus.png')
-
+    this.load.spritesheet("bird", "assets/bird.png", { frameWidth: 150, frameHeight: 108 });
+    
   }
          
   create () {
-    // this.add.image(400, 300, 'platform');
-      // this.add.image(game.config.with/2,game.config.height/2)
-      // this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, 'run1');
-      // this.player.setScale(0.3)
-        // setting player animation
+
         this.anims.create({
                key: 'run',
                frames: [
@@ -74,18 +66,13 @@ export default class AnimateScene extends Phaser.Scene {
               repeat: -1,
               frameRate: 8,
             });
-             this.anims.create({
-              key: 'rotate',
-              frames: [
-                { key: 'cactus1', frame: null },
-                { key: 'cactus2', frame: null },
-                { key: 'cactus3', frame: null },
-                { key: 'cactus4', frame: null },
-                { key: 'cactus5', frame: null },
-              ],
-              repeat: -1,
-              frameRate: 5,
-            });
+            this.anims.create({
+              key: "fly",
+              frames: this.anims.generateFrameNames('bird', { start: 0, end: 1 }),
+              frameRate: 20,
+              repeat: -1
+          })
+         
        
             this.scene.start("Game");
   }

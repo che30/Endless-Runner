@@ -7,22 +7,7 @@ export default class Apidata {
     };
   }
 
-  async getScores() {
-    const url = `${this.config.apiURL}${this.config.gameid}/scores/`;
-
-    const fetchOptions = {
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      method: 'GET',
-    };
-
-    const data = await fetch(url, fetchOptions);
-    const { result: scores } = await data.json();
-
-    return scores;
-  }
-
+ 
   async addScore(username, score) {
     const url = `${this.config.apiURL}${this.config.gameid}/scores/`;
     const scoreData = {
