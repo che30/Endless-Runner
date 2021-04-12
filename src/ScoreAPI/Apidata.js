@@ -7,7 +7,7 @@ export default class Apidata {
     };
   }
 
- 
+
   async addScore(username, score) {
     const url = `${this.config.apiURL}${this.config.gameid}/scores/`;
     const scoreData = {

@@ -1,20 +1,23 @@
-import 'phaser';
+/* eslint-disable import/no-extraneous-dependencies */
+import Phaser from 'phaser';
 
 export default class OptionsScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('Options');
   }
-preload(){
-  this.load.image('walk1','assets/runner1.png')
-    this.load.image('walk2','assets/runner2.png')
-    this.load.image('walk3','assets/runner3.png')
-    this.load.image('walk4','assets/runner4.png')
-    this.load.image('walk5','assets/runner5.png')
-    this.load.image('walk6','assets/runner6.png')
-    this.load.image('walk7','assets/runner7.png')
-    this.load.image('walk8','assets/runner8.png')
-}
-  create () {
+
+  preload() {
+    this.load.image('walk1', 'assets/runner1.png');
+    this.load.image('walk2', 'assets/runner2.png');
+    this.load.image('walk3', 'assets/runner3.png');
+    this.load.image('walk4', 'assets/runner4.png');
+    this.load.image('walk5', 'assets/runner5.png');
+    this.load.image('walk6', 'assets/runner6.png');
+    this.load.image('walk7', 'assets/runner7.png');
+    this.load.image('walk8', 'assets/runner8.png');
+  }
+
+  create() {
     this.anims.create({
       key: 'walk',
       frames: [
@@ -43,23 +46,23 @@ preload(){
     this.musicButton.setInteractive();
     this.soundButton.setInteractive();
 
-    this.musicButton.on('pointerdown', function () {
+    this.musicButton.on('pointerdown', () => {
       this.musicOn = !this.musicOn;
       this.updateAudio();
-    }.bind(this));
+    });
 
-    this.soundButton.on('pointerdown', function () {
+    this.soundButton.on('pointerdown', () => {
       this.soundOn = !this.soundOn;
       this.updateAudio();
-    }.bind(this));
+    });
 
     this.menuButton = this.add.sprite(400, 500, 'blueButton1').setInteractive();
     this.menuText = this.add.text(0, 0, 'Menu', { fontSize: '32px', fill: '#fff' });
     Phaser.Display.Align.In.Center(this.menuText, this.menuButton);
 
-    this.menuButton.on('pointerdown', function (pointer) {
+    this.menuButton.on('pointerdown', () => {
       this.scene.start('Title');
-    }.bind(this));
+    });
 
     this.updateAudio();
   }
@@ -77,4 +80,5 @@ preload(){
       this.soundButton.setTexture('checkedBox');
     }
   }
-};
+}
+/* eslint-enable import/no-extraneous-dependencies */

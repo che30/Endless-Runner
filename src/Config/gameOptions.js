@@ -1,5 +1,5 @@
 export default {
- 
+
   // platform speed range, in pixels per second
   platformSpeedRange: [230, 230],
 
@@ -39,9 +39,9 @@ export default {
 
   // % of probability a fire appears on the platform
   firePercent: 25,
-  //Array to store playerName
-  playerName : [],
-  //Score Array
-  currentScore: []
-  
-}
+  // Array to store playerName
+  playerName: [],
+  // Score Array
+  currentScore: [],
+
+};
