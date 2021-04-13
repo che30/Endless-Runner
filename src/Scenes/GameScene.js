@@ -68,7 +68,7 @@ export default class GameScene extends Phaser.Scene {
     this.player.setScale(1);
     this.player.setDepth(2);
     // add collider between bird and player
-    this.physics.add.overlap(this.player, this.birds, function (player, birds) {
+    this.physics.add.overlap(this.player, this.birds,  (player, birds)=> {
       this.checkscore();
       this.score += 6;
       gameOptions.currentScore.push(this.score);
@@ -87,7 +87,7 @@ export default class GameScene extends Phaser.Scene {
       });
     }, null, this);
     this.platformCollider = this.physics.add.collider(this.player,
-      this.platformGroup, function () {
+      this.platformGroup,  ()=> {
       // play "run" animation if the player is on a platform
         if (!this.player.anims.isPlaying) {
           this.player.anims.play('run');
@@ -158,7 +158,7 @@ export default class GameScene extends Phaser.Scene {
     const api = new Apidata();
     // game over
     if (this.player.y > this.game.config.height) {
-      api.addScore(gameOptions.playerName[0], 10);
+      api.addScore(gameOptions.playerName[0], gameOptions.currentScore[0]);
       this.scene.pause('Game');
       this.scene.start('GameOver');
     }
@@ -166,7 +166,7 @@ export default class GameScene extends Phaser.Scene {
     // recycling platforms
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
-    this.platformGroup.getChildren().forEach(function (platform) {
+    this.platformGroup.getChildren().forEach( (platform)=> {
       const platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
@@ -178,7 +178,7 @@ export default class GameScene extends Phaser.Scene {
       }
     }, this);
     // recycling mountains
-    this.mountainGroup.getChildren().forEach(function (mountain) {
+    this.mountainGroup.getChildren().forEach( (mountain)=> {
       if (mountain.x < -mountain.displayWidth) {
         const rightmostMountain = this.getRightmostMountain();
         mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
