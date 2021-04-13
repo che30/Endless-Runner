@@ -26,19 +26,13 @@ export default {
   playerGravity: 900,
 
   // player jump force
-  jumpForce: 400,
+  jumpForce: 290,
 
   // player starting X position
   playerStartPosition: 200,
 
   // consecutive jumps allowed
   jumps: 2,
-
-  // % of probability a coin appears on the platform
-  coinPercent: 25,
-
-  // % of probability a fire appears on the platform
-  firePercent: 25,
   // Array to store playerName
   playerName: [],
   // Score Array
