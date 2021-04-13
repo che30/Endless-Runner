@@ -65,7 +65,7 @@ export default class GameScene extends Phaser.Scene {
     this.player = this.physics.add.sprite(gameOptions.playerStartPosition,
       this.game.config.height * 0.7, 'run1');
     this.player.setGravityY(gameOptions.playerGravity);
-    this.player.setScale(1);
+    this.player.setScale(2);
     this.player.setDepth(2);
     // add collider between bird and player
     this.physics.add.overlap(this.player, this.birds, (player, birds) => {
@@ -155,6 +155,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
+    this.player.x = gameOptions.playerStartPosition;
     const api = new Apidata();
     // game over
     if (this.player.y > this.game.config.height) {
@@ -162,7 +163,8 @@ export default class GameScene extends Phaser.Scene {
       this.scene.pause('Game');
       this.scene.start('GameOver');
     }
-    this.player.setVelocityX(145);
+    // this.player.setVelocityX(135);
+    
     // recycling platforms
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
@@ -223,7 +225,7 @@ export default class GameScene extends Phaser.Scene {
       }
     } else if (this.cursors.right.isDown) {
       // this.player.x
-      this.player.x += 3;
+   
       this.score += 2;
       this.checkscore();
       this.score += 4;

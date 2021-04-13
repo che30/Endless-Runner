@@ -1,7 +1,7 @@
 export default {
 
   // platform speed range, in pixels per second
-  platformSpeedRange: [230, 230],
+  platformSpeedRange: [300, 300],
 
   // mountain speed, in pixels per second
   mountainSpeed: 80,
@@ -26,7 +26,7 @@ export default {
   playerGravity: 900,
 
   // player jump force
-  jumpForce: 290,
+  jumpForce: 400,
 
   // player starting X position
   playerStartPosition: 200,
@@ -36,6 +36,6 @@ export default {
   // Array to store playerName
   playerName: [],
   // Score Array
-  currentScore: [],
+  currentScore: [0],
 
 };

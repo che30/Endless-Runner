@@ -14,17 +14,12 @@ export default class GameOverScene extends Phaser.Scene {
     this.load.image('mountain', 'assets/ui/cozy/transparent /background.png');
     this.load.image('leaderboard', 'assets/ui/ui_ic/cdicon.png');
     this.load.image('home', 'assets/ui/ui_ic/levelsel.png');
-    this.load.image('walk1', 'assets/runner1.png');
-    this.load.image('walk2', 'assets/runner2.png');
-    this.load.image('walk3', 'assets/runner3.png');
-    this.load.image('walk4', 'assets/runner4.png');
-    this.load.image('walk5', 'assets/runner5.png');
-    this.load.image('walk6', 'assets/runner6.png');
-    this.load.image('walk7', 'assets/runner7.png');
-    this.load.image('walk8', 'assets/runner8.png');
   }
 
   create() {
+   gameOptions.platformSpeedRange[0]=250
+   gameOptions.platformSpeedRange[1]=250
+  
     this.add.image(200, 200, 'mountain');
     this.add.image(400, 300, 'gameover');
     this.scoreText = this.add.text(48, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
