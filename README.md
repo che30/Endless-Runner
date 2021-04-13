@@ -27,7 +27,7 @@ To run tests follow the steps below
 - Then Type `npm run test` to run all the tests
 
 ## Click the link below to see the live demo
-- [Live Demo Link](https://immense-basin-03916.herokuapp.com/)
+- [Live Demo Link](https://che30-endless-runner.herokuapp.com/)
 ## Video presentation
 - [Live Presentation Link](https://www.loom.com/share/10164f46d22e44c98bca3de10f4bbff2)
 ## Author
