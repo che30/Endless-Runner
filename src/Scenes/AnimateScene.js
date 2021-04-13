@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 import Phaser from 'phaser';
 
 export default class AnimateScene extends Phaser.Scene {
@@ -62,4 +62,3 @@ export default class AnimateScene extends Phaser.Scene {
     this.scene.start('Game');
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */

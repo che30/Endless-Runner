@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 /* eslint-disable  class-methods-use-this */
 import Phaser from 'phaser';
 import config from '../Config/config';
@@ -56,5 +56,5 @@ export default class TitleScene extends Phaser.Scene {
     );
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
+
 /* eslint-enable  class-methods-use-this */

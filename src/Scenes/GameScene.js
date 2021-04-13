@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 /* eslint-disable no-plusplus */
 /* eslint-disable  class-methods-use-this */
 
@@ -68,7 +68,7 @@ export default class GameScene extends Phaser.Scene {
     this.player.setScale(1);
     this.player.setDepth(2);
     // add collider between bird and player
-    this.physics.add.overlap(this.player, this.birds,  (player, birds)=> {
+    this.physics.add.overlap(this.player, this.birds, (player, birds) => {
       this.checkscore();
       this.score += 6;
       gameOptions.currentScore.push(this.score);
@@ -87,7 +87,7 @@ export default class GameScene extends Phaser.Scene {
       });
     }, null, this);
     this.platformCollider = this.physics.add.collider(this.player,
-      this.platformGroup,  ()=> {
+      this.platformGroup, () => {
       // play "run" animation if the player is on a platform
         if (!this.player.anims.isPlaying) {
           this.player.anims.play('run');
@@ -166,7 +166,7 @@ export default class GameScene extends Phaser.Scene {
     // recycling platforms
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
-    this.platformGroup.getChildren().forEach( (platform)=> {
+    this.platformGroup.getChildren().forEach((platform) => {
       const platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
@@ -178,7 +178,7 @@ export default class GameScene extends Phaser.Scene {
       }
     }, this);
     // recycling mountains
-    this.mountainGroup.getChildren().forEach( (mountain)=> {
+    this.mountainGroup.getChildren().forEach((mountain) => {
       if (mountain.x < -mountain.displayWidth) {
         const rightmostMountain = this.getRightmostMountain();
         mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
@@ -271,6 +271,5 @@ export default class GameScene extends Phaser.Scene {
     });
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
 /* eslint-enable no-plusplus */
 /* eslint-enable  class-methods-use-this */

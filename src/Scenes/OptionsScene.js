@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 import Phaser from 'phaser';
 
 export default class OptionsScene extends Phaser.Scene {
@@ -81,4 +81,3 @@ export default class OptionsScene extends Phaser.Scene {
     }
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */

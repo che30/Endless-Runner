@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 import Phaser from 'phaser';
 
 
@@ -15,4 +15,3 @@ export default class BootScene extends Phaser.Scene {
     this.scene.start('Preloader');
   }
 }
-/* eslint-enable import/no-extraneous-dependencies */
