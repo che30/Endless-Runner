@@ -36,6 +36,6 @@ export default {
   // Array to store playerName
   playerName: [],
   // Score Array
-  currentScore: [0],
+  currentScore: [],
 
 };
