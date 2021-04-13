@@ -162,7 +162,7 @@ export default class GameScene extends Phaser.Scene {
       this.scene.pause('Game');
       this.scene.start('GameOver');
     }
-    this.player.body.setVelocityX(150);
+    this.player.setVelocityX(145);
     // recycling platforms
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
