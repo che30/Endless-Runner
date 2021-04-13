@@ -17,9 +17,9 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-   gameOptions.platformSpeedRange[0]=250
-   gameOptions.platformSpeedRange[1]=250
-  
+    gameOptions.platformSpeedRange[0] = 250;
+    gameOptions.platformSpeedRange[1] = 250;
+
     this.add.image(200, 200, 'mountain');
     this.add.image(400, 300, 'gameover');
     this.scoreText = this.add.text(48, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
