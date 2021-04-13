@@ -11,7 +11,6 @@ export default class ScoreBoardScene extends Phaser.Scene {
   preload() {
     // load images
     this.load.image('back', 'assets/ui/ui_ic/ret.png');
-    this.load.image('gameover', 'assets/game_over.png');
     this.load.image('mountain', 'assets/ui/cozy/transparent /background.png');
     this.load.image('leaderboard', 'assets/ui/ui_ic/cdicon.png');
     this.load.image('home', 'assets/ui/ui_ic/levelsel.png');
@@ -19,7 +18,6 @@ export default class ScoreBoardScene extends Phaser.Scene {
 
   async create() {
     this.add.image(200, 200, 'mountain');
-    this.add.image(400, 300, 'gameover');
     const { game: { config: { width, height } } } = this;
     const midpoint = (width / 8);
 
