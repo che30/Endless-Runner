@@ -223,16 +223,7 @@ export default class GameScene extends Phaser.Scene {
         gameOptions.currentScore.push(this.score);
         this.scoreText.setText(`Score: ${this.score}`);
       }
-    } else if (this.cursors.right.isDown) {
-      // this.player.x
-
-      this.score += 2;
-      this.checkscore();
-      this.score += 4;
-      gameOptions.currentScore.push(this.score);
-      this.scoreText.setText(`Score: ${this.score}`);
-      this.player.anims.play('right', true);
-    }
+    } 
   }
 
   checkscore() {
