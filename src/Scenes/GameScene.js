@@ -146,12 +146,12 @@ export default class GameScene extends Phaser.Scene {
     this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0],
       gameOptions.spawnRange[1]);
 
+    // Sets the jumps to 0 for the double jump
+    this.cursors = this.input.keyboard.createCursorKeys();
     this.input.keyboard.on('keydown-UP', this.jump, this);
     this.input.keyboard.on('keydown-RIGHT', this.jump, this);
     this.input.on('pointerdown', this.jump, this);
 
-    // Sets the jumps to 0 for the double jump
-    this.cursors = this.input.keyboard.createCursorKeys();
   }
 
   update() {

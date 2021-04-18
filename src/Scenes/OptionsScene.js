@@ -35,7 +35,7 @@ export default class OptionsScene extends Phaser.Scene {
     });
 
 
-    this.text = this.add.text(300, 100, 'Options to added', { fontSize: 40 });
+    this.text = this.add.text(150, 100, 'Options to be added', { fontSize: 40 });
 
 
     this.menuButton = this.add.sprite(400, 500, 'blueButton1').setInteractive();
