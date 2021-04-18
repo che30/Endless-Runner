@@ -59,7 +59,7 @@ export default class GameScene extends Phaser.Scene {
     // number of consecutive jumps made by the player so far
     this.playerJumps = 0;
     // adding a platform to the game, the arguments are platform width, x position and y position
-    this.addPlatform(this.game.config.width, this.game.config.width / 2,
+    this.addPlatform(this.game.config.width/2, this.game.config.width / 2,
       this.game.config.height * gameOptions.platformVerticalLimit[1]);
     // adding the player;
     this.player = this.physics.add.sprite(gameOptions.playerStartPosition,
