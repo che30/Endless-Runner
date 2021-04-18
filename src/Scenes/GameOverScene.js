@@ -22,7 +22,13 @@ export default class GameOverScene extends Phaser.Scene {
     this.add.image(200, 200, 'mountain');
     this.add.image(400, 300, 'gameover');
     this.scoreText = this.add.text(48, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-    this.scoreText.setText(`Score: ${gameOptions.currentScore[0]}`);
+    let currentScore 
+    if (gameOptions.currentScore[0]===undefined) {
+      currentScore =0;
+    }else{
+      currentScore = gameOptions.currentScore[0];
+    }
+    this.scoreText.setText(`Score: ${currentScore}`);
     const backbtn = this.add.sprite((this.game.config.width / 8), (this.game.config.height / 4) * 3, 'back');
     backbtn.setScale(0.5);
     backbtn.setInteractive();
