@@ -28,7 +28,7 @@ export default class GameScene extends Phaser.Scene {
     // spawn bird
     this.spawnBird();
     // add mountain
-   this.add.image(200, 200, 'mountain');
+    this.add.image(200, 200, 'mountain');
     // group with all active mountains.
     this.mountainGroup = this.add.group();
 
@@ -59,7 +59,7 @@ export default class GameScene extends Phaser.Scene {
     // number of consecutive jumps made by the player so far
     this.playerJumps = 0;
     // adding a platform to the game, the arguments are platform width, x position and y position
-    this.addPlatform(this.game.config.width/2, this.game.config.width / 2,
+    this.addPlatform(this.game.config.width / 2, this.game.config.width / 2,
       this.game.config.height * gameOptions.platformVerticalLimit[1]);
     // adding the player;
     this.player = this.physics.add.sprite(gameOptions.playerStartPosition,
@@ -167,6 +167,7 @@ export default class GameScene extends Phaser.Scene {
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
     this.platformGroup.getChildren().forEach((platform) => {
+      // platform.setScaleY(2)
       const platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
