@@ -28,7 +28,7 @@ export default class GameScene extends Phaser.Scene {
     // spawn bird
     this.spawnBird();
     // add mountain
-    this.add.image(200, 200, 'mountain');
+   this.add.image(200, 200, 'mountain');
     // group with all active mountains.
     this.mountainGroup = this.add.group();
 
