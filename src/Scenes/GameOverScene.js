@@ -1,4 +1,5 @@
-
+/* eslint-disable prefer-destructuring
+ */
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
 
@@ -17,15 +18,13 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-
-
     this.add.image(200, 200, 'mountain');
     this.add.image(400, 300, 'gameover');
     this.scoreText = this.add.text(48, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-    let currentScore 
-    if (gameOptions.currentScore[0]===undefined) {
-      currentScore =0;
-    }else{
+    let currentScore;
+    if (gameOptions.currentScore[0] === undefined) {
+      currentScore = 0;
+    } else {
       currentScore = gameOptions.currentScore[0];
     }
     this.scoreText.setText(`Score: ${currentScore}`);
@@ -57,3 +56,5 @@ export default class GameOverScene extends Phaser.Scene {
     });
   }
 }
+/* eslint-enable prefer-destructuring
+ */

@@ -151,7 +151,6 @@ export default class GameScene extends Phaser.Scene {
     this.input.keyboard.on('keydown-UP', this.jump, this);
     this.input.keyboard.on('keydown-RIGHT', this.jump, this);
     this.input.on('pointerdown', this.jump, this);
-
   }
 
   update() {
@@ -223,7 +222,7 @@ export default class GameScene extends Phaser.Scene {
         gameOptions.currentScore.push(this.score);
         this.scoreText.setText(`Score: ${this.score}`);
       }
-    } 
+    }
   }
 
   checkscore() {

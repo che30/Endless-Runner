@@ -15,7 +15,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.load.image('walk6', 'assets/runner6.png');
     this.load.image('walk7', 'assets/runner7.png');
     this.load.image('walk8', 'assets/runner8.png');
-    this.load.image('instruction','assets/animation.png')
+    this.load.image('instruction', 'assets/animation.png');
   }
 
   create() {
@@ -37,9 +37,9 @@ export default class OptionsScene extends Phaser.Scene {
 
 
     this.add.text(200, 100, 'Game instructions', { fontSize: 40 });
-    this.add.text(200,250,'use this arrow ')
-    this.add.text(420,250,'to jump between obstacles')
-    this.add.image(380,250,'instruction')
+    this.add.text(200, 250, 'use this arrow ');
+    this.add.text(420, 250, 'to jump between obstacles');
+    this.add.image(380, 250, 'instruction');
 
 
     this.menuButton = this.add.sprite(400, 500, 'blueButton1').setInteractive();

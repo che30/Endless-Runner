@@ -30,7 +30,6 @@ export default class TitleScene extends Phaser.Scene {
     this.optionsButton.on('pointerdown', () => {
       this.scene.start('Options');
     });
-
   }
 
   centerButton(gameObject, offset = 0) {
