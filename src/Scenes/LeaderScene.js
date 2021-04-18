@@ -33,7 +33,7 @@ export default class ScoreBoardScene extends Phaser.Scene {
     titleText.x = midpoint;
 
     const top = await this.getTopScores();
-
+    console.log(top)
     fontOptions.fill = '#28abb9';
     fontOptions.stroke = '#2d6187';
 
