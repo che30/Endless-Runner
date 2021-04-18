@@ -162,7 +162,6 @@ export default class GameScene extends Phaser.Scene {
       this.scene.pause('Game');
       this.scene.start('GameOver');
     }
-    // this.player.setVelocityX(135);
 
     // recycling platforms
     let minDistance = this.game.config.width;
@@ -239,9 +238,9 @@ export default class GameScene extends Phaser.Scene {
       callback: () => {
         const val = Math.random();
         if (val > 0.5) {
-          this.generateBird(280);
+          this.generateBird(200);
         } else {
-          this.generateBird(360);
+          this.generateBird(270);
         }
       },
     });
