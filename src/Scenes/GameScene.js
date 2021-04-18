@@ -238,7 +238,7 @@ export default class GameScene extends Phaser.Scene {
       callback: () => {
         const val = Math.random();
         if (val > 0.5) {
-          this.generateBird(200);
+          this.generateBird(190);
         } else {
           this.generateBird(270);
         }
