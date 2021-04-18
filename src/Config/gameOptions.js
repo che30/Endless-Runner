@@ -25,7 +25,7 @@ export default {
   // player gravity
   playerGravity: 900,
 
-  // player jump force
+  // player jump force 400
   jumpForce: 400,
 
   // player starting X position
