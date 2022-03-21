@@ -33,7 +33,7 @@ export default class ScoreBoardScene extends Phaser.Scene {
     titleText.x = midpoint;
 
     const top = await this.getTopScores();
-    console.log(top);
+    // console.log(top);
     fontOptions.fill = '#28abb9';
     fontOptions.stroke = '#2d6187';
 
@@ -82,7 +82,7 @@ export default class ScoreBoardScene extends Phaser.Scene {
       scores.splice(maxindex, 1);
       points.splice(maxindex, 1);
     }
-
+    // console.log(top5);
     return top5;
   }
 }

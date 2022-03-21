@@ -2,7 +2,7 @@
 export default class Apidata {
   constructor() {
     this.config = {
-      gameid: 'tGhIY9XB4kv8gnoRDbJw',
+      gameid: 'mvznIbdcQYJwsyjInh0H',
       apiURL: 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/',
     };
   }
@@ -19,7 +19,7 @@ export default class Apidata {
 
     const data = await fetch(url, fetchOptions);
     const { result: scores } = await data.json();
-
+    console.log(scores);
     return scores;
   }
 
