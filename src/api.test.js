@@ -6,7 +6,6 @@ import GameOverScene from './Scenes/GameOverScene';
 
 jest.mock('./ScoreAPI/Apidata');
 
-
 test('check is Gamescene called Api constructor', () => {
   const game = new GameScene();
   expect(Apidata).not.toHaveBeenCalledTimes(1);

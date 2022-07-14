@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
 
@@ -40,7 +39,7 @@ export default class PlayerName extends Phaser.Scene {
 
           //  Populate the text with whatever they typed in
           text.setText(`Welcome ${inputText.value}`);
-          gameOptions.playerName.push(inputText.value);
+          gameOptions.playerName = [inputText.value];
           that.scene.stop('Player');
           that.scene.start('Animate');
         } else {

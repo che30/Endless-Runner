@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser';
 
 export default class AnimateScene extends Phaser.Scene {
@@ -57,7 +56,6 @@ export default class AnimateScene extends Phaser.Scene {
       frameRate: 20,
       repeat: -1,
     });
-
 
     this.scene.start('Game');
   }

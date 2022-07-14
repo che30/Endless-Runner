@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser';
 
 export default class OptionsScene extends Phaser.Scene {
@@ -35,12 +34,10 @@ export default class OptionsScene extends Phaser.Scene {
       frameRate: 8,
     });
 
-
     this.add.text(200, 100, 'Game instructions', { fontSize: 40 });
     this.add.text(200, 250, 'use this arrow ');
     this.add.text(420, 250, 'to jump between obstacles');
     this.add.image(380, 250, 'instruction');
-
 
     this.menuButton = this.add.sprite(400, 500, 'blueButton1').setInteractive();
     this.menuText = this.add.text(0, 0, 'Next', { fontSize: '32px', fill: '#fff' });

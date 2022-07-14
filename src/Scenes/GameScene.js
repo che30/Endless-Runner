@@ -1,7 +1,5 @@
-
 /* eslint-disable no-plusplus */
 /* eslint-disable  class-methods-use-this */
-
 
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
@@ -158,6 +156,7 @@ export default class GameScene extends Phaser.Scene {
     const api = new Apidata();
     // game over
     if (this.player.y > this.game.config.height) {
+      console.log(gameOptions.playerName[0]);
       api.addScore(gameOptions.playerName[0], gameOptions.currentScore[0]);
       this.scene.pause('Game');
       this.scene.start('GameOver');

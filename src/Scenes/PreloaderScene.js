@@ -1,4 +1,3 @@
-
 /* eslint-disable radix */
 import Phaser from 'phaser';
 
