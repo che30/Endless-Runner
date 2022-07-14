@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser';
 import gameOptions from '../Config/gameOptions';
 

@@ -1,4 +1,3 @@
-
 /* eslint-disable  class-methods-use-this */
 import Phaser from 'phaser';
 import config from '../Config/config';
